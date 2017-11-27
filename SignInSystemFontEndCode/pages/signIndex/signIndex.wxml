@@ -1,0 +1,20 @@
+<!--pages/signIndex/signIndex.wxml-->
+<view class="container">
+  <view class="upper">
+      <image src='../../images/signIndex_upper.png' class='img_upper'></image>   
+  </view>
+
+  <view class="lower" >   <!-- style='height:{{secondHeight}}rpx' -->
+    <view class='lower_1'>
+      <text class='course_text'>{{course}}</text>
+    </view>
+    <view class='lower_2'>
+      <image src='../../images/signTimer.jpg' class='img_lower'></image>
+    </view>
+    <view class='lower_3'>
+      <text class='timerCaption'>{{timerCaption}}</text>
+      <text class='timer'>{{clock}}</text>
+    </view>
+  </view>
+
+</view>

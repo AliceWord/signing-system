@@ -1,0 +1,34 @@
+<!--pages/account/account.wxml-->
+<view class="container">
+  <view class="upper">
+      <image src='../../images/account_upper.png' class='img_upper'></image>
+      <image src='../../images/account_edit.png' class='img_upper_edit' bindtap=''></image>   
+  </view>
+
+  <view class="lower" > 
+    <view class='lower_1'>
+      <view class='lower_1_1'>
+        <text>姓名：</text>
+        <input bindinput='userNameInput'></input>
+      </view>
+      <view class='lower_1_2'>
+        <text>学号：</text>
+        <input bindinput='userIdInput'></input>
+      </view>
+    </view>
+    <view class='lower_2'>
+      <view class='lower_2_1'>
+        <text>学校：</text>
+        <input bindinput='schoolInput'></input>
+      </view>
+    </view>
+
+    <view class='lower_3'>
+      <view class='lower_3_1' bindtap='teacherIdentify'>
+        <image src='../../images/teacher_identify.png' class='img_lower_teaIden' bindtap=''></image> 
+        <text style='color:black' decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;教师认证</text>
+      </view>
+    </view>
+  </view>
+
+</view>

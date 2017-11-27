@@ -1,0 +1,4 @@
+<!--pages/teacherIdentify/teacherIdentify.wxml-->
+<text>教师认证页面</text>
+
+<button bindtap='bindProcess'>request</button>

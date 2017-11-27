@@ -1,0 +1,39 @@
+<!--pages/course/course.wxml-->
+<!-- <view class='container'>
+  <image src='{{img_src}}' style='height:{{img_height}}px' class='img_course' bindtouchstart='imgTStart' bindtouchend='imgTEnd'></image>
+</view>
+---------------------------"前期框架"------------------------------------- -->
+
+<view class='container'>
+  <view class='weekBar'>
+    <picker class='weekSelect' bindchange='weekSelect' range='{{week}}' value='{{weekSelected}}'>
+      第{{week[weekSlected]}}周
+      <text decode="{{true}}" space="{{true}}">&nbsp;</text> 
+    <image src='../../images/arrow_down.png' class='arrow_down'> </image>
+    </picker>
+    <image src='../../images/course_add.png' class='course_add'  bindtap='courseAdd'></image> 
+  </view>
+
+  <view class='schedule'>
+    <view class='schedule_top'>
+      <view wx:for="{{schedule_top}}" class='schedule_top_1' wx:for-item="day">周{{day}}</view>
+    </view>
+
+    <view class='schedule_left'>
+      <view wx:for="{{sessionArr}}" class='session_array' wx:for-item="sessionTime" style='height:{{sessionHeight}}rpx'>
+      {{sessionTime.session}}
+      <view class='schedule_time'>{{sessionTime.time}}</view>
+      </view>
+    </view>
+
+    <view wx:for="{{schedule_line}}" class='schedule_line' style="margin-top:{{(index+1)*74.2}}rpx;border-bottom:1rpx solid {{index==4||index==9?'red':'darkgray'}}" wx:for-item="line"></view>
+
+    <view class='schedule_content'>
+      <view wx:for="{{session}}" wx:for-item="session" 
+      style='position:absolute;left:{{(session.session_day-1)*90}}rpx;top:{{(session.session_course-1)*74.2}}rpx;display:flex;flex-wrap:wrap;width:70rpx;height:{{session.session_duringTime*74.2-1}}rpx;align-items:center;justify-content:center;border-radius:10rpx;background-color:{{session_color[(session.session_day+session.session_course)%6]}};font-weight:bolder'>{{session.session_name}}</view>
+    </view>
+  </view>
+
+
+
+</view>

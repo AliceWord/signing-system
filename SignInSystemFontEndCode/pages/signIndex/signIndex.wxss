@@ -1,0 +1,69 @@
+/* pages/signIndex/signIndex.wxss */
+.container{
+  height: 100%;
+  width: 100%
+}
+
+.upper{
+  width: 100%;
+  height: 240px;
+  /* background-color: red; */
+  border-radius: 100rpx;
+}
+
+.lower{
+  width: 100%;
+   /* background-color: blue;  */
+}
+
+.img_upper{
+  width: 100%;
+  height: 100%
+}
+
+.lower_1{
+  width: 100%;
+  height: 100rpx;
+  /* background-color: red; */
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course_text{
+  font-size: 50rpx;
+  font-weight: bolder;
+}
+
+.lower_2{
+  width: 100%;
+  height: 280rpx;
+    /* background-color: wheat;   */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img_lower{
+  width: 300rpx;
+  height: 280rpx;
+}
+
+.lower_3{
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.timerCaption{
+  font-size: 38rpx;
+}
+
+.timer{
+  color: red;
+  margin-top:20rpx
+}
