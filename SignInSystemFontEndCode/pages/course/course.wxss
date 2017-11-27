@@ -1,7 +1,10 @@
 /* pages/course/course.wxss */
+
 .container{
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  /* background-image: url("http://7xibou.com1.z0.glb.clouddn.com/course_background.jpg"); */
+
 }
 
 .img_course{
@@ -12,7 +15,7 @@
 .weekBar{
   width: 100%;
   height: 70rpx;
-  background-color: yellowgreen;
+  background-color: #E6E6FA; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,7 +43,7 @@
 .schedule_top{
   height: 70rpx;
   display: flex;
-  background-color: yellow;
+   /* background-color: #E6E6FA;  */
   align-items: center;
   font-size: 30rpx;
   margin-left: 100rpx;
@@ -55,7 +58,7 @@
 
 .schedule_left{
   width: 100rpx;
-  background-color: peachpuff;
+  /* background-color: peachpuff; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -78,13 +81,21 @@
 .schedule_line{
   width: 750rpx;
   position: absolute;
-  top:140rpx; 
+  top:138rpx; 
 }
 
 .schedule_content{
   position: absolute;
   top:140rpx;
   left: 100rpx;
-  background-color: red;
+  /* background-color: red; */
   font-size: 15rpx;
+}
+
+.background_color{
+  position: absolute;
+  top: 140rpx;
+  left: 100rpx;
+  width: 650rpx;
+  background-color:  #F0FFFF;/*; */
 }

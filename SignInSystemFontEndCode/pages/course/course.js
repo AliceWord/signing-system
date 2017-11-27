@@ -9,7 +9,7 @@ Page({
    */
   data: {
     sys_height:0,
-    sessionHeight:0,
+    sessionHeight:75,
     img_src: '../../images/course.png',
     week: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],
     schedule_top:["一","二","三","四","五","六","日"],
@@ -18,7 +18,7 @@ Page({
       { session: 4, time: "10:40" }, { session: 5, time: "11:30" }, { session: 6, time: "13:30" }, { session: 7, time: "14:20" },
       { session: 8, time: "15:20" }, { session: 9, time: "16:10" }, { session: 10, time: "17:05" },
       { session: 11, time: "17:55" }, { session: 12, time: "19:20" }, { session: 13, time: "20:10" }],
-    schedule_line: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    schedule_line: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13],
     session:[{session_day:1,session_course:1,session_duringTime:2,session_name:"组合数学@主楼-101"},
       { session_day: 1, session_course: 1, session_duringTime: 2, session_name: "高等网络@四教-203" },
       { session_day: 2, session_course: 10, session_duringTime: 1, session_name: "微机设计@三教-304" },
@@ -39,10 +39,11 @@ Page({
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
-          sessionHeight: 75//(res.windowHeight / res.windowWidth * 750 - 140) / 13
+          sys_height: res.windowHeight / res.windowWidth * 750//(res.windowHeight / res.windowWidth * 750 - 140) / 13
         })
       },
     });
+    
   },
 
   //---------------框架代码-----------------------
@@ -80,7 +81,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
