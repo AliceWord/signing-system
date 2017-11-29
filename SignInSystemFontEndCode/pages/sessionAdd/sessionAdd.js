@@ -1,25 +1,18 @@
-// pages/courseAdd/courseAdd.js
-
+// pages/sessionAdd/sessionAdd.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    session:[],
-    session_color:[],
-    mine:"王丹阳"
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
-   * Get and parse para...
    */
   onLoad: function (options) {
-    this.setData({
-      session: JSON.parse(options.paraSession),
-      session_color:JSON.parse(options.paraColor)
-    })
+  
   },
 
   /**

@@ -19,13 +19,13 @@ Page({
       { session: 8, time: "15:20" }, { session: 9, time: "16:10" }, { session: 10, time: "17:05" },
       { session: 11, time: "17:55" }, { session: 12, time: "19:20" }, { session: 13, time: "20:10" }],
     schedule_line: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13],
-    session: [{ session_day: 1, session_course: 1, session_duringTime: 2, session_name: "组合数学", session_address:"主楼-101"},
-      { session_day: 1, session_course: 1, session_duringTime: 2, session_name: "高等网络", session_address: "四教-203" },
-      { session_day: 2, session_course: 10, session_duringTime: 1, session_name: "微机设计", session_address: "三教-304" },
-      { session_day: 3, session_course: 4, session_duringTime: 2, session_name: "人机交互", session_address: "三教-111"},
-      { session_day: 4, session_course: 6, session_duringTime: 3, session_name: "软件工程", session_address: "六教-413"},
-      { session_day: 5, session_course: 3, session_duringTime: 2, session_name: "嵌入式设计", session_address: "五教-521"},
-      { session_day: 6, session_course: 9, session_duringTime: 1, session_name: "学疯了", session_address: "宿舍-017"}
+    session: [{ session_day: 1, session_course: 6, session_duringTime: 2, session_name: "组合数学", session_address:"主楼-101",session_selectNum:162,session_duringWeek:18},
+      { session_day: 1, session_course: 1, session_duringTime: 2, session_name: "高等网络", session_address: "四教-203", session_selectNum: 94, session_duringWeek: 16},
+      { session_day: 2, session_course: 10, session_duringTime: 1, session_name: "微机设计", session_address: "三教-304", session_selectNum: 38, session_duringWeek: 18 },
+      { session_day: 3, session_course: 4, session_duringTime: 2, session_name: "人机交互", session_address: "三教-111", session_selectNum: 51, session_duringWeek: 8},
+      { session_day: 4, session_course: 6, session_duringTime: 3, session_name: "软件工程", session_address: "六教-413", session_selectNum: 35, session_duringWeek: 18},
+      { session_day: 5, session_course: 3, session_duringTime: 2, session_name: "嵌入式设计", session_address: "五教-521", session_selectNum: 27, session_duringWeek: 18},
+      { session_day: 6, session_course: 9, session_duringTime: 1, session_name: "王者荣耀", session_address: "宿舍-017", session_selectNum: 5, session_duringWeek: 18}
       ],
     session_color: ["#EE3A8C", "#FFC125", "#B23AEE", "#97FFFF", "#76EE00", "#4876FF","#EE7600"]
   },

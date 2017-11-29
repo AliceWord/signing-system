@@ -37,7 +37,7 @@
   width: 40rpx;
   height: 40rpx;
   position: absolute;
-  left: 680rpx;
+  left: 530rpx; 
 }
 
 .schedule_top{

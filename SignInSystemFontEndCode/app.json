@@ -3,14 +3,12 @@
     "pages/course/course",
     "pages/signIndex/signIndex",
     "pages/courseAdd/courseAdd",
-    
-    
     "pages/teacherIdentify/teacherIdentify",
     "pages/account/account",
     "pages/test/test",
     "pages/index/index",
-    "pages/logs/logs"
-    
+    "pages/logs/logs",
+    "pages/sessionAdd/sessionAdd"
   ],
   "window": {
     "backgroundTextStyle": "light",

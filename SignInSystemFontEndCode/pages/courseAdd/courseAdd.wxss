@@ -11,16 +11,92 @@
   margin-top:20rpx;
   display: flex;
   width: 700rpx;
-  height: 150rpx;
+  height: 160rpx;
   background-color: #F5F5F5;
-  border-bottom: 1rpx solid;
+  /* border-bottom: 1rpx solid; */
   border-radius: 15rpx;
+  flex-direction: column;
 }
 
 .list_course_name{
   position: relative;
-  top:20rpx;
+  top:10rpx;
   left:20rpx;
   font-size: 35rpx;
   font-weight: bold;
 }
+
+.list_course_middle{
+  display: flex;
+}
+
+.doctorHat{
+  position: relative;
+  top:20rpx;
+  left: 20rpx; 
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.list_course_middle_mine{
+  font-size: 20rpx;
+  position: relative;
+  top:30rpx;
+  left: 30rpx;
+}
+
+.multiPeople{
+  position: relative;
+  top:25rpx;
+  left: 150rpx; 
+  width: 25rpx;
+  height: 25rpx;  
+}
+
+.list_course_middle_selectNum{
+  font-size: 20rpx;
+  position: relative;
+  top:25rpx;
+  left: 166rpx;
+}
+
+.list_course_middle_btn{
+  font-size: 20rpx;
+  position: relative;
+  top:10rpx;
+  left: 166rpx;
+}
+
+.list_course_address{
+  position: relative;
+  top:25rpx;
+  left: 20rpx;  
+  width: 27rpx;
+  height: 27rpx;  
+}
+
+.list_course_bottom{
+  display: flex;  
+}
+
+.list_course_bottom_schudule{
+  font-size: 20rpx;
+  position: relative;
+  top:30rpx;
+  left: 30rpx;  
+}
+
+.addSession{
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.addSession_navigator{
+  font-size: 30rpx;
+  border: 1rpx solid #BFEFFF; 
+  padding:15rpx;
+  border-radius:10rpx;
+  font-weight: bold;
+  background-color: #BFEFFF;
+}
+

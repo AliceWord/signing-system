@@ -1,0 +1,6 @@
+<!--pages/sessionAdd/sessionAdd.wxml-->
+
+<view class='container'>
+  <image src='../../images/sessionAdd_default.jpg' class='img_default'></image>
+  <view class='text_default'>还加么？！</view>
+</view>
