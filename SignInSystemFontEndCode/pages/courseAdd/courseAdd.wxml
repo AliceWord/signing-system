@@ -1,2 +1,9 @@
 <!--pages/courseAdd/courseAdd.wxml-->
-<text>pages/courseAdd/courseAdd.wxml</text>
+<view class='container'>
+  <view wx:for="{{session}}" wx:for-item="session" class='list_course'>
+    <view class='list_course_name'>{{session.session_name}}</view>
+  </view>
+
+
+
+</view>

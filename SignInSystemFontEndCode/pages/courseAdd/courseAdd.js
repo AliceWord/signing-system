@@ -1,18 +1,23 @@
 // pages/courseAdd/courseAdd.js
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    session:[],
+    session_color:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      session: JSON.parse(options.paraSession),
+      session_color:JSON.parse(options.paraColor)
+    })
   },
 
   /**

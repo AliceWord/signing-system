@@ -1,1 +1,26 @@
 /* pages/courseAdd/courseAdd.wxss */
+.container{
+   width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+}
+
+.list_course{
+  margin-top:20rpx;
+  display: flex;
+  width: 700rpx;
+  height: 150rpx;
+  background-color: #F5F5F5;
+  border-bottom: 1rpx solid;
+  border-radius: 15rpx;
+}
+
+.list_course_name{
+  position: relative;
+  top:20rpx;
+  left:20rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+}

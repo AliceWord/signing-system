@@ -33,7 +33,7 @@
 
     <view class='schedule_content'>
       <view wx:for="{{session}}" wx:for-item="session" 
-      style='position:absolute;left:{{(session.session_day-1)*90}}rpx;top:{{(session.session_course-1)*74.2}}rpx;display:flex;flex-wrap:wrap;width:70rpx;height:{{session.session_duringTime*74.2-1}}rpx;align-items:center;justify-content:center;border-radius:10rpx;background-color:{{session_color[(session.session_day+session.session_course)%6]}};font-weight:bolder'>{{session.session_name}}</view>
+      style='position:absolute;left:{{(session.session_day-1)*90}}rpx;top:{{(session.session_course-1)*74.2}}rpx;display:flex;flex-wrap:wrap;width:70rpx;height:{{session.session_duringTime*74.2-1}}rpx;align-items:center;justify-content:center;border-radius:10rpx;background-color:{{session_color[(session.session_day+session.session_course)%6]}};font-weight:bolder'>{{session.session_name}}@{{session.session_address}}</view>
     </view>
   </view>
 

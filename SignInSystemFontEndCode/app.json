@@ -2,12 +2,15 @@
   "pages": [
     "pages/course/course",
     "pages/signIndex/signIndex",
+    "pages/courseAdd/courseAdd",
+    
+    
     "pages/teacherIdentify/teacherIdentify",
     "pages/account/account",
     "pages/test/test",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/courseAdd/courseAdd"
+    "pages/logs/logs"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
