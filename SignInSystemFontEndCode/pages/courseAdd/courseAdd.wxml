@@ -8,7 +8,7 @@
       <view class='list_course_middle_mine'>{{mine}}</view>
       <image src='../../images/multi_people.png' class='multiPeople'></image>
       <view class='list_course_middle_selectNum'>{{session.session_selectNum}}人参加</view>
-      <button bindtap='navigateToDetails' class='list_course_middle_btn'>详情</button>
+      <button bindtap='navigateToDetails' class='list_course_middle_btn' data-item='{{session.session_name}}'>详情</button> 
     </view>
     <view class='list_course_bottom'>
       <image src='../../images/address.png' class='list_course_address'></image>

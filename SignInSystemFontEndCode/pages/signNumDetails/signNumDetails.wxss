@@ -1,1 +1,80 @@
 /* pages/signNumDetails/signNumDetails.wxss */
+.container{
+  width:100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column
+}
+
+.detail_top{
+  height: 80rpx;
+  background-color: #BBFFFF;
+  display: flex;
+  align-items: center;
+}
+
+.detail_top_1{
+  display: flex;
+  justify-content: center;
+  width: 250rpx;
+}
+
+.detail_top_2{
+  display: flex;
+  justify-content: center;
+  width: 300rpx;
+}
+
+.detail_top_3{
+  display: flex;
+  justify-content: center;
+  width: 200rpx;
+}
+
+text{
+  font-size: 30rpx
+}
+
+.detail_content{
+  width:100%;
+  height: 120rpx;
+  background-color: #FFFAFA;
+  border-bottom: 4rpx dotted black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.detail_content_1{
+  width: 250rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail_content_img{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 45rpx
+}
+
+.detail_content_name{
+  font-size: 30rpx;
+  margin-left: 10rpx
+}
+
+.detail_content_stuNum{
+  font-size: 30rpx;
+  width: 300rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail_content_signNum{
+  font-size: 30rpx;
+  width: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -26,8 +26,10 @@ Page({
    * Navigate to Page "signNumDetails"
    */
   navigateToDetails:function(e){
+    console.log(e)
+    var session_name=e.target.dataset.item
     wx.navigateTo({
-      url: '../signNumDetails/signNumDetails?',
+      url: '../signNumDetails/signNumDetails?session_name=' + session_name,
     })
   },
 

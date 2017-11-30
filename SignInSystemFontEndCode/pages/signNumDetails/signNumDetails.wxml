@@ -1,2 +1,18 @@
 <!--pages/signNumDetails/signNumDetails.wxml-->
-<text>pages/signNumDetails/signNumDetails.wxml</text>
+<view class='container'>
+  <view class='detail_top'>
+    <view class='detail_top_1'><text>姓名</text></view>
+    <view class='detail_top_2'><text>学号</text></view>
+    <view class='detail_top_3'><text>累计签到</text></view>
+  </view>
+
+  <view wx:for="{{arr_avatar}}" class='detail_content' wx:for-item="arr">
+    <view class='detail_content_1'>
+      <image src="../../images/avatar{{arr.src}}.jpg" class='detail_content_img'></image>
+      <view class='detail_content_name'>{{arr.name}}</view>
+    </view>
+    <view class='detail_content_stuNum'>{{arr.stuNum}}</view>
+    <view class='detail_content_signNum'>{{arr.signNum}}次</view>
+  </view>
+</view>
+
