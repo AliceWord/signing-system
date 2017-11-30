@@ -1,11 +1,20 @@
 <!--pages/signIndex/signIndex.wxml-->
 <view class="container">
   <view class="upper">
-      <image src='../../images/signIndex_upper.png' class='img_upper'></image>   
+      <!-- <image src='../../images/signIndex_upper.png' class='img_upper'></image>  -->
+      <view class='detail_top'>
+        <view class='detail_top_1'><text>上一个签到课程</text></view>
+        <view class='detail_top_2'><text>软件工程</text></view>
+      </view>  
+      <view class='detail_top'>
+        <view class='detail_top_1'><text>下一个签到课程</text></view>
+        <view class='detail_top_2'><text>计算机网络</text></view>
+      </view> 
   </view>
 
   <view class="lower" >   <!-- style='height:{{secondHeight}}rpx' -->
     <view class='lower_1'>
+      <text class='course_index'>当前签到课程</text>
       <text class='course_text'>{{course}}</text>
     </view>
     <view class='lower_2'>

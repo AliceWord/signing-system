@@ -12,8 +12,10 @@ Page({
     clock:'',
     imgSrc_signBegin:"../../images/sign_begin.png",
     imgSrc_signSuccess: "../../images/sign_success.png",
+    imgSrc_signFail:"../../images/sign_fail.png",
     latitude_self:null,
-    longitude_self:null
+    longitude_self:null,
+    flag_sign:false
   },
 
   /**
@@ -48,7 +50,8 @@ Page({
     })
     
     this.setData({
-      imgSrc_signBegin: this.data.imgSrc_signSuccess
+      imgSrc_signBegin: this.data.imgSrc_signSuccess,
+      flag_sign:true
     })
   },
 
@@ -59,7 +62,8 @@ Page({
     });
     if (that.data.timer <= 0) {
       that.setData({
-        clock: "已经截止"
+        clock: "已经截止",
+        imgSrc_signBegin: this.data.imgSrc_signFail
       });
       // timeout则跳出递归
       return;

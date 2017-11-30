@@ -6,9 +6,9 @@
 
 .upper{
   width: 100%;
-  height: 240px;
+  height: 120px;
   /* background-color: red; */
-  border-radius: 100rpx;
+  border-radius: 150rpx;
 }
 
 .lower{
@@ -27,13 +27,19 @@
   /* background-color: red; */
   margin-top: 30rpx;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.course_index{
+  
 }
 
 .course_text{
   font-size: 50rpx;
   font-weight: bolder;
+  color: red;
 }
 
 .lower_2{
@@ -67,3 +73,24 @@
   color: red;
   margin-top:20rpx
 }
+
+.detail_top{
+  height: 80rpx;
+  background-color: #BBFFFF;
+  display: flex;
+  align-items: center;
+}
+
+
+.detail_top_1{
+  display: flex;
+  justify-content: center;
+  width: 400rpx;
+}
+
+.detail_top_2{
+  display: flex;
+  justify-content: center;
+  width: 300rpx;
+}
+
