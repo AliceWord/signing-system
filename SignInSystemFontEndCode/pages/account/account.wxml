@@ -1,34 +1,66 @@
 <!--pages/account/account.wxml-->
 <view class="container">
-  <view class="upper">
-      <image src='../../images/account_upper.png' class='img_upper'></image>
-      <image src='../../images/account_edit.png' class='img_upper_edit' bindtap=''></image>   
+  
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
   </view>
-
-  <view class="lower" > 
-    <view class='lower_1'>
-      <view class='lower_1_1'>
-        <text>姓名：</text>
-        <input bindinput='userNameInput'></input>
-      </view>
-      <view class='lower_1_2'>
-        <text>学号：</text>
-        <input bindinput='userIdInput'></input>
-      </view>
-    </view>
-    <view class='lower_2'>
-      <view class='lower_2_1'>
-        <text>学校：</text>
-        <input bindinput='schoolInput'></input>
-      </view>
-    </view>
+  <view class="menu-list">
+        <view class="my-setting menu-item">
+            <view class="menu-item-label">
+                用户  
+            </view>
+            <navigator url="../editeInfo/index?key=userName&value={{userName}}&label=用户名">
+                <view class="menu-item-title">
+                    {{userName}}
+                </view>
+                <image class="next-icon" src="../../images/rightArrow.png" />
+            </navigator>
+        </view>
+        <view class="my-setting menu-item">
+            <view class="menu-item-label">
+                学号
+            </view>
+            <navigator url="../editeInfo/index?key=userId&value={{userId}}&label=学号">
+                <view class="menu-item-title">
+                    {{userId}}
+                </view>
+                <image class="next-icon" src="../../images/rightArrow.png" />
+            </navigator>
+        </view>
+        <view class="my-setting menu-item">
+            <view class="menu-item-label">
+                学校
+            </view>
+            <navigator url="../editeInfo/index?key=school&value={{school}}&label=学号">
+                <view class="menu-item-title">
+                    {{school}}
+                </view>
+                <image class="next-icon" src="../../images/rightArrow.png" />
+            </navigator>
+        </view>
 
     <view class='lower_3'>
-      <view class='lower_3_1' bindtap='teacherIdentify'>
-        <image src='../../images/teacher_identify.png' class='img_lower_teaIden' bindtap=''></image> 
-        <text style='color:black' decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;教师认证</text>
+      <view class='lower_3_1' bindtap='showGenderDialog'>
+        <image src='../../images/teacher_identify.png' class='img_lower_teaIden' bindtap='showGenderDialog'></image> 
+        <!-- <text style='color:black' decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;教师认证</text> -->
+        <text style='color:black'>{{identify}}</text>
       </view>
     </view>
+
+  </view>
+
+  <view wx:if="{{genderDialogStatus}}">
+        <view class="gender-dialog">
+            <view class="gender-content">
+              <image src='../../images/close.png' class='close' bindtap='hidenGenderDialog'></image>  
+               <image src='../../images/pass.png' class='identify' ></image>  
+              <text>认证通过</text>
+            </view>
+        </view>
   </view>
 
 </view>

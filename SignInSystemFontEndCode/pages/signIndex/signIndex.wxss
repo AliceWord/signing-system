@@ -46,8 +46,8 @@
 }
 
 .img_lower{
-  width: 300rpx;
-  height: 280rpx;
+  width: 250rpx;
+  height: 250rpx;
 }
 
 .lower_3{

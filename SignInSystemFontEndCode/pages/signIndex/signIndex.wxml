@@ -9,7 +9,7 @@
       <text class='course_text'>{{course}}</text>
     </view>
     <view class='lower_2'>
-      <image src='../../images/signTimer.jpg' class='img_lower'></image>
+      <image src='{{imgSrc_signBegin}}' class='img_lower' bindtap='imgChange'></image>
     </view>
     <view class='lower_3'>
       <text class='timerCaption'>{{timerCaption}}</text>

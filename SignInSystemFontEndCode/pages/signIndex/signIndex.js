@@ -9,7 +9,11 @@ Page({
     course:"组合数学",
     timerCaption:"距离到结束还有",
     timer:10000,
-    clock:''
+    clock:'',
+    imgSrc_signBegin:"../../images/sign_begin.png",
+    imgSrc_signSuccess: "../../images/sign_success.png",
+    latitude_self:null,
+    longitude_self:null
   },
 
   /**
@@ -29,6 +33,23 @@ Page({
     
     // 渲染倒计时时钟
     this.count_down(this);
+  },
+
+  imgChange:function(e){
+    var that=this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        that.data.latitude_self = res.latitude;
+        that.data.longitude_self = res.longitude;
+        console.log('Latitude is '+that.data.latitude_self);
+        console.log('Longitude is '+that.data.longitude_self)
+      }
+    })
+    
+    this.setData({
+      imgSrc_signBegin: this.data.imgSrc_signSuccess
+    })
   },
 
   /* ---------------毫秒级倒计时------------------ */

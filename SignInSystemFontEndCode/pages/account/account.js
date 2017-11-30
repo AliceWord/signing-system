@@ -7,9 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName:null,
-    userId:null,
-    school:null
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    genderDialogStatus: false,
+    identify:'教师认证',
+    userName:'jlt',
+    userId:'P17',
+    school:'清华'
   },
 
   /**
@@ -18,31 +23,60 @@ Page({
   onLoad: function (options) {
   
   },
+//获取头像昵称
+  onLoad: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+  },
 
-  //获取对应输入信息
-  userNameInput:function(e){
-    console.log(e);
+  getUserInfo: function (e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
     this.setData({
-      userName:e.detail.value
-    });
-    console.log(this.data.userName)
-  },
-  userIdInput:function(e){
-    this.setData({
-      userId:e.detail.value
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
     })
   },
-  schoolInput:function(e){
-    this.setData({
-      school:e.detail.value
-    })
-  },
-  teacherIdentify:function(e){
+    
+  accountEdit: function (e) {
     wx.navigateTo({
-      url: '../../pages/teacherIdentify/teacherIdentify'
+      url: '../accountEdit/accountEdit',
     })
   },
 
+  showGenderDialog() {
+    const that = this;
+    that.setData({ genderDialogStatus: true });
+    that.setData({ identify: '教师' });
+  },
+  hidenGenderDialog() {
+    const that = this;
+    that.setData({ genderDialogStatus: false });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

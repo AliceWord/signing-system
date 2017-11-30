@@ -8,18 +8,22 @@
     "pages/test/test",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/sessionAdd/sessionAdd"
+    "pages/sessionAdd/sessionAdd",
+    "pages/signNumDetails/signNumDetails",
+    "pages/editeInfo/index"
   ],
   "window": {
+    "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "white",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "border-bpttom": "black"
   },
   "tabBar": {
-    "backgroundColor": "#F4F4F4",
+    "backgroundColor": "white",
     "selectedColor": "#11cd6e",
-    "borderStyle": "white",
+    "borderStyle": "#FF0000",
     "list": [
       {
         "selectedIconPath": "images/sign_2.png",
