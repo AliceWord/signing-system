@@ -25,11 +25,11 @@ DROP TABLE IF EXISTS `coursescheduletb`;
 CREATE TABLE `coursescheduletb` (
   `id` int(11) NOT NULL,
   `Courseid` int(20) NOT NULL,
-  `Date` datetime NOT NULL,
+  `Date` date DEFAULT NULL,
   `Section` int(11) NOT NULL,
   `Period` int(11) NOT NULL,
-  `SignUpStartTime` datetime NOT NULL,
-  `SignUpEndTime` datetime NOT NULL,
+  `SignUpStartTime` time NOT NULL,
+  `SignUpEndTime` time NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Courseid` (`Courseid`),
   CONSTRAINT `coursescheduletb_ibfk_1` FOREIGN KEY (`Courseid`) REFERENCES `coursetb` (`Courseid`)
@@ -42,6 +42,7 @@ CREATE TABLE `coursescheduletb` (
 
 LOCK TABLES `coursescheduletb` WRITE;
 /*!40000 ALTER TABLE `coursescheduletb` DISABLE KEYS */;
+INSERT INTO `coursescheduletb` VALUES (1,10001,'2017-09-18',1,3,'09:45:00','09:55:00'),(2,10002,'2017-09-19',1,2,'09:45:00','09:55:00'),(3,10003,'2017-09-20',6,3,'13:25:00','13:35:00'),(4,10004,'2017-09-21',1,3,'09:45:00','09:55:00'),(5,10005,'2017-09-22',6,2,'13:25:00','13:35:00'),(6,10006,'2017-09-23',1,3,'09:45:00','09:55:00'),(7,10007,'2017-09-24',6,3,'13:25:00','13:35:00');
 /*!40000 ALTER TABLE `coursescheduletb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +63,7 @@ CREATE TABLE `coursetb` (
   `Longitude` float(5,2) NOT NULL,
   `Latitude` float(5,2) NOT NULL,
   `Term` int(20) NOT NULL,
-  `FirstWeek` datetime NOT NULL,
+  `FirstWeek` date DEFAULT NULL,
   PRIMARY KEY (`Courseid`),
   KEY `Teacherid` (`Teacherid`),
   CONSTRAINT `coursetb_ibfk_1` FOREIGN KEY (`Teacherid`) REFERENCES `teachertb` (`Teacherid`)
@@ -75,6 +76,7 @@ CREATE TABLE `coursetb` (
 
 LOCK TABLES `coursetb` WRITE;
 /*!40000 ALTER TABLE `coursetb` DISABLE KEYS */;
+INSERT INTO `coursetb` VALUES (10001,'软件工程',1,'清华大学','六教','413',38.32,83.56,20172018,'2017-09-18'),(10002,'微机设计',1,'清华大学','六教','422',38.32,83.56,20172018,'2017-09-18'),(10003,'有机结构',2,'清华大学','三教','011',34.34,83.11,20172018,'2017-09-18'),(10004,'物化性质',2,'清华大学','三教','222',34.34,83.11,20172018,'2017-09-18'),(10005,'微生物学',3,'清华大学','四教','313',38.31,83.23,20172018,'2017-09-18'),(10006,'生物制药',3,'清华大学','四教','115',38.31,83.23,20172018,'2017-09-18'),(10007,'组织结构',3,'清华大学','四教','113',38.31,83.23,20172018,'2017-09-18');
 /*!40000 ALTER TABLE `coursetb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,6 +134,7 @@ CREATE TABLE `signingtb` (
 
 LOCK TABLES `signingtb` WRITE;
 /*!40000 ALTER TABLE `signingtb` DISABLE KEYS */;
+INSERT INTO `signingtb` VALUES (1,10004,201701024),(2,10001,201701021),(3,10001,201701021),(4,10003,201701022),(5,10002,201701025),(6,10005,201701025),(7,10006,201701026);
 /*!40000 ALTER TABLE `signingtb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,6 +162,7 @@ CREATE TABLE `studenttb` (
 
 LOCK TABLES `studenttb` WRITE;
 /*!40000 ALTER TABLE `studenttb` DISABLE KEYS */;
+INSERT INTO `studenttb` VALUES (201701021,'其他','jywang','王同学','清华大学','计算机系'),(201701022,'其他','cdliu','刘同学','清华大学','化学系'),(201701023,'其他','mkzhao','赵同学','清华大学','生物系'),(201701024,'其他','ajqian','钱同学','清华大学','计算机系'),(201701025,'其他','jysun','孙同学','清华大学','生物系'),(201701026,'其他','jyli','李同学','清华大学','化学系');
 /*!40000 ALTER TABLE `studenttb` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,6 +189,7 @@ CREATE TABLE `teachertb` (
 
 LOCK TABLES `teachertb` WRITE;
 /*!40000 ALTER TABLE `teachertb` DISABLE KEYS */;
+INSERT INTO `teachertb` VALUES (1,'zyli','李老师','清华大学','计算机系'),(2,'swzhang','张老师','清华大学','化学系'),(3,'ghliu','刘老师','清华大学','生物系');
 /*!40000 ALTER TABLE `teachertb` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -197,4 +202,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-14 20:34:14
+-- Dump completed on 2017-12-16 11:49:51
