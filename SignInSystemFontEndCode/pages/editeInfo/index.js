@@ -28,6 +28,15 @@ Page({
         wx.navigateBack();
     },
     saveInfoHandle() {
+      wx.navigateBack();
+      wx.request({
+        url: 'http://api/userinfo_edite',
+        data: {
+          x: WeChatid,
+          y: value,
+          t:key
+        }
+      });
         // const that = this;
         // const { key, value } = that.data;
         // const pages = getCurrentPages();
@@ -44,6 +53,6 @@ Page({
         //     .catch((err) => {
         //         console.log(err);
         //     });
-      wx.navigateBack();
+     
     }
 })

@@ -7,14 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
+
     userInfo: {},
-    hasUserInfo: false,
+    hasUserInfo: true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     genderDialogStatus: false,
-    identify:'教师认证',
-    userName:'jlt',
-    userId:'P17',
-    school:'清华'
+    session:{
+    usertype: 2,
+    userName: 'jlt',
+    userId: 'P17',
+    school: '清华'
+    }
   },
 
   /**
@@ -25,10 +28,12 @@ Page({
   },
 //获取头像昵称
   onLoad: function () {
+    var that = this;
+ 
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+       // hasUserInfo: true
       })
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -51,16 +56,27 @@ Page({
         }
       })
     }
-  },
-
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    wx.request({
+      url: 'http://api/getuserinfo',
+      data: {
+        x: WeChatid
+      },
+      success: function (res) {
+        that.setData({
+          session: res.data.session
+        })
+      }
     })
   },
+
+  // getUserInfo: function (e) {
+  //   console.log(e)
+  //   app.globalData.userInfo = e.detail.userInfo
+  //   this.setData({
+  //     userInfo: e.detail.userInfo,
+  //     hasUserInfo: true
+  //   })
+  // },
     
   accountEdit: function (e) {
     wx.navigateTo({
@@ -70,8 +86,9 @@ Page({
 
   showGenderDialog() {
     const that = this;
-    that.setData({ genderDialogStatus: true });
-    that.setData({ identify: '教师' });
+    that.setData({ 
+      genderDialogStatus: true 
+    });
   },
   hidenGenderDialog() {
     const that = this;

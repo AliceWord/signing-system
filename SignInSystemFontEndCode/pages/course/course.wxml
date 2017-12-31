@@ -14,7 +14,7 @@
       <text decode="{{true}}" space="{{true}}">&nbsp;</text> 
     <image src='../../images/arrow_down.png' class='arrow_down'> </image>
     </picker>
-    <image src='../../images/course_add.png' class='course_add'  bindtap='courseAdd'></image> 
+    <image class="{{showView?'add_course_show':'add_course_hide'}}" src='../../images/course_add.png'   bindtap='courseAdd'></image> 
   </view>
 
   <view class='schedule'>
@@ -33,7 +33,7 @@
 
     <view class='schedule_content'>
       <view wx:for="{{session}}" wx:for-item="session" 
-      style='position:absolute;left:{{(session.session_day-1)*90}}rpx;top:{{(session.session_course-1)*74.2}}rpx;display:flex;flex-wrap:wrap;width:70rpx;height:{{session.session_duringTime*74.2-1}}rpx;align-items:center;justify-content:center;border-radius:10rpx;background-color:{{session_color[(session.session_day+session.session_course)%6]}};font-weight:bolder'>{{session.session_name}}@{{session.session_address}}</view>
+      style='position:absolute;left:{{(session.day-1)*90}}rpx;top:{{(session.Section-1)*74.2}}rpx;display:flex;flex-wrap:wrap;width:70rpx;height:{{session.duringTime*74.2-1}}rpx;align-items:center;justify-content:center;border-radius:10rpx;background-color:{{session_color[(session.day+session.Section)%6]}};font-weight:bolder'>{{session.CourseName}}@{{session.TeachingBuiLding}}</view>
     </view>
   </view>
 

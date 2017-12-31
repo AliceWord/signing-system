@@ -1,26 +1,30 @@
 <!--pages/courseAdd/courseAdd.wxml-->
 <view class='container'>
+ <view class='search'>
+  <input   bindtap="bindKeyInput"></input>
+  <button  class='butt' bindtap="course_search">搜索</button>
+</view> 
+
   <view wx:for="{{session}}" wx:for-item="session" class='list_course' 
-  style='border-bottom:8rpx solid {{session_color[(session.session_day+session.session_course)%6]}}'>
-    <view class='list_course_name'>{{session.session_name}}</view>
+  style='border-bottom:8rpx solid {{session_color[(session.day+session.Section)%6]}}'>
+    <view class='list_course_name'>{{session.CourseName}}</view>
     <view class='list_course_middle'>
       <image src='../../images/doctor_hat.png' class='doctorHat'></image>
-      <view class='list_course_middle_mine'>{{mine}}</view>
+      <view class='list_course_middle_mine'>{{session.TeacherName}}</view>
       <image src='../../images/multi_people.png' class='multiPeople'></image>
       <view class='list_course_middle_selectNum'>{{session.session_selectNum}}人参加</view>
-      <button bindtap='navigateToDetails' class='list_course_middle_btn' data-item='{{session.session_name}}'>详情</button> 
+     <button bindtap='selected_change' style='background-color:#FFFFFF'class='list_course_middle_btn' data-item='{{session.Courseid}}' >{{!session.selected?"添加":"删除"}}</button> 
     </view>
     <view class='list_course_bottom'>
       <image src='../../images/address.png' class='list_course_address'></image>
       <view class='list_course_bottom_schudule'>
-        1-{{session.session_duringWeek}}周<text decode="{{true}}" space="{{true}}">&nbsp;</text>周{{session.session_day}}<text decode="{{true}}" space="{{true}}">&nbsp;</text>第{{session.session_course}}{{session.session_duringTime==1?"":('-'+(session.session_course+session.session_duringTime-1))}}节
+        {{session.TeachingBuiLding}}<text decode="{{true}}" space="{{true}}">&nbsp;</text>周{{session.day}}<text decode="{{true}}" space="{{true}}">&nbsp;</text>第{{session.Section}}{{session.duringTime==1?"":('-'+(session.Section+session.duringTime-1))}}节<text decode="{{true}}" space="{{true}}">&nbsp;</text>{{session.startWeek}}-{{session.endWeek}}周
         </view>
     </view>
   </view>
-  <view class='addSession'>
-      <!-- <button class='addCourse_btn'><icon type='success' size='40rpx'></icon>添加课程</button> -->
+  <!-- <view class='addSession'>
       <navigator class='addSession_navigator' url='../sessionAdd/sessionAdd'>添加课程</navigator>
-  </view>
+  </view> -->
 
 
 </view>

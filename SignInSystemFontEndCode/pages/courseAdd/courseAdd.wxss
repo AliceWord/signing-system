@@ -6,7 +6,33 @@
   align-items: center; 
   flex-direction: column;
 }
-
+.search{
+  display: flex;
+    width:100%;
+    padding: 10rpx 10rpx;
+    justify-content: space-around;
+    margin-top: 10rpx;
+}
+input {
+  padding: 0rpx 25rpx;
+    margin: 0rpx 30rpx;
+    width: 550rpx;
+    height: 60rpx;
+    background-color: #fff;
+    font-size: 26rpx;
+    color: #7fabfd;
+    border-radius:8rpx;
+}
+.butt{
+   margin: 0rpx 30rpx 0rpx 10rpx;
+    width: 120rpx;
+   height: 60rpx;
+   padding: 0rpx 10rpx;
+    font-size: 26rpx;
+    border-radius: 10rpx;
+     background-color: #999;
+    color: #fff;
+}
 .list_course{
   margin-top:20rpx;
   display: flex;

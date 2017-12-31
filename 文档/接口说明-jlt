@@ -1,0 +1,103 @@
+ course.js
+ url: 'http://api/course_now',
+      data:{
+        x: WeChatid,
+        y: year,//int
+        m: month,//int
+        d:day//int
+      },
+获取课程信息，传入WeChatid，返回用户类型和当前教学周session的lists
+type,//用户类型（1:学生2:教师）int型
+session:{
+	weekSlected,//当前第几教学周
+	day,//周几
+	Section,//第几节开始
+	duringTime,//上几个学时
+	CourseName,//课程名
+	TeachingBuiLding,//教学楼
+
+}
+
+ url: 'http://api/course_week',
+      data:{
+        x:WeChatid,
+        y:weekSlected//教学周
+      },
+获取课程信息，传入WeChatid，返回查询教学周session数组
+session:{
+	day,//周几
+	Section,//第几节开始
+	duringTime,//上几个学时
+	CourseName,//课程名
+	TeachingBuiLding,//教学楼
+}
+
+url: 'http://api/course_my',
+      data:{
+        x:WeChatid,
+      },
+获取该用户所有课程，传入WeChatid，返回课程session数组
+session:{
+	selected,//该学生是否选了该门课，bool型，这里恒返回true
+	Courseid,
+	CourseName,//课程名
+	TeacherName,
+	session_selectNum,//选课人数
+	TeachingBuiLding,//教学楼
+	day,//周几
+	Section,//第几节开始
+	duringTime,//上几个学时
+	startWeek,//起始周
+	endWeek,//结束周	
+}
+
+url: 'http://api/course_change',
+      data:{
+        x: WeChatid,
+        y: Courseid
+      },
+若该用户已选该门课，则删除，否则添加
+
+url: 'http://api/course_search',
+      data:{
+      	x: WeChatid,
+        y:inputValue,//输入的关键词
+      },
+搜索课程，返回课程session数组
+session:{
+	selected,//该学生是否选了该门课
+	Courseid,
+	CourseName,//课程名
+	TeacherName,
+	session_selectNum,//选课人数
+	TeachingBuiLding,//教学楼
+	day,//周几
+	Section,//第几节开始
+	duringTime,//上几个学时
+	startWeek,//起始周
+	endWeek,//结束周	
+}
+
+
+account.js
+url: 'http://api/getuserinfo',
+      data: {
+        x: WeChatid
+      },
+返回用户基本信息
+session:{
+	usertype: 2,//用户类型（1:学生2:教师）int型
+    userName: 'jlt',
+    userId: 'P17',
+    school: '清华'
+}
+
+
+editeInfo.js
+ url: 'http://api/userinfo_edite',
+        data: {
+          x: WeChatid,
+          y:''//输入的字符串
+          key:''//可能参数为userName（用户名）userId（学号/工号）school（学校）
+        },
+ 修改用户信息

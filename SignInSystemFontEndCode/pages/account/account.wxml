@@ -2,11 +2,11 @@
 <view class="container">
   
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
+    <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else> -->
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+    <!-- </block> -->
   </view>
   <view class="menu-list">
         <view class="my-setting menu-item">
@@ -15,7 +15,7 @@
             </view>
             <navigator url="../editeInfo/index?key=userName&value={{userName}}&label=用户名">
                 <view class="menu-item-title">
-                    {{userName}}
+                    {{session.userName}}
                 </view>
                 <image class="next-icon" src="../../images/rightArrow.png" />
             </navigator>
@@ -26,7 +26,7 @@
             </view>
             <navigator url="../editeInfo/index?key=userId&value={{userId}}&label=学号">
                 <view class="menu-item-title">
-                    {{userId}}
+                    {{session.userId}}
                 </view>
                 <image class="next-icon" src="../../images/rightArrow.png" />
             </navigator>
@@ -37,7 +37,7 @@
             </view>
             <navigator url="../editeInfo/index?key=school&value={{school}}&label=学号">
                 <view class="menu-item-title">
-                    {{school}}
+                    {{session.school}}
                 </view>
                 <image class="next-icon" src="../../images/rightArrow.png" />
             </navigator>
@@ -47,7 +47,12 @@
       <view class='lower_3_1' bindtap='showGenderDialog'>
         <image src='../../images/teacher_identify.png' class='img_lower_teaIden' bindtap='showGenderDialog'></image> 
         <!-- <text style='color:black' decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;教师认证</text> -->
-        <text style='color:black'>{{identify}}</text>
+        <view wx:if="{{ session.usertype==2 }}">
+          <text style='color:black'>教师</text>
+        </view>
+        <view wx:else="{{ session.usertype==2 }}">
+          <text style='color:black'>教师认证</text>
+        </view>
       </view>
     </view>
 
@@ -57,8 +62,15 @@
         <view class="gender-dialog">
             <view class="gender-content">
               <image src='../../images/close.png' class='close' bindtap='hidenGenderDialog'></image>  
-               <image src='../../images/pass.png' class='identify' ></image>  
+               <view wx:if="{{ session.usertype==2 }}">
+               <image  src='../../images/pass.png' class='identify' ></image>  
               <text>认证通过</text>
+              </view>
+
+               <view wx:else="{{ session.usertype==1 }}">
+               <image  src='../../images/fail.png' class='identify' ></image>  
+              <text>认证失败</text>
+              </view>
             </view>
         </view>
   </view>

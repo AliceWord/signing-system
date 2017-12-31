@@ -58,7 +58,7 @@
 
 .schedule_left{
   width: 100rpx;
-  /* background-color: peachpuff; */
+   /* background-color: peachpuff;  */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -98,4 +98,19 @@
   left: 100rpx;
   width: 650rpx;
   background-color:  #F0FFFF;/*; */
+}
+
+.add_course_hide{
+   width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 530rpx; 
+ display: none;
+}
+.add_course_show{
+   width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 530rpx; 
+ display: block;
 }
