@@ -7,24 +7,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    Wechatid: 'jywang',
     userInfo: {},
     hasUserInfo: true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     genderDialogStatus: false,
+    // session:{
+    //   Type: 2,
+    //   StudentName: '',
+    //   Studentid: 'P17',
+    //   SchoolName: '清华'
+    // }
     session:{
-    usertype: 2,
-    userName: 'jlt',
-    userId: 'P17',
-    school: '清华'
+      type:'2',
+      studentName: 'qw',
+      studentId: 'P17',
+      schoolName: '清华'
     }
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
 //获取头像昵称
   onLoad: function () {
@@ -56,17 +63,9 @@ Page({
         }
       })
     }
-    wx.request({
-      url: 'http://api/getuserinfo',
-      data: {
-        x: WeChatid
-      },
-      success: function (res) {
-        that.setData({
-          session: res.data.session
-        })
-      }
-    })
+
+    
+    
   },
 
   // getUserInfo: function (e) {
@@ -105,7 +104,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+    wx.request({
+      url: "http://127.0.0.1:8080/SignInSystem/getUserInfo",
+      data: {
+        Wechatid: 'jywang'
+      },
+      success: function (res) {
+        console.log(res);
+        console.log(res.data.schoolName);
+        that.setData({
+          session: res.data
+        })
+      }
+    })
   },
 
   /**

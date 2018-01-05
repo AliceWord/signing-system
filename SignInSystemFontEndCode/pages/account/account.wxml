@@ -13,9 +13,9 @@
             <view class="menu-item-label">
                 用户  
             </view>
-            <navigator url="../editeInfo/index?key=userName&value={{userName}}&label=用户名">
+            <navigator url="../editeInfo/index?key=StudentName&value={{session.studentName}}&label=用户名">
                 <view class="menu-item-title">
-                    {{session.userName}}
+                    {{session.studentName}}
                 </view>
                 <image class="next-icon" src="../../images/rightArrow.png" />
             </navigator>
@@ -24,9 +24,9 @@
             <view class="menu-item-label">
                 学号
             </view>
-            <navigator url="../editeInfo/index?key=userId&value={{userId}}&label=学号">
+            <navigator url="../editeInfo/index?key=Studentid&value={{session.studentId}}&label=学号">
                 <view class="menu-item-title">
-                    {{session.userId}}
+                    {{session.studentId}}
                 </view>
                 <image class="next-icon" src="../../images/rightArrow.png" />
             </navigator>
@@ -35,9 +35,9 @@
             <view class="menu-item-label">
                 学校
             </view>
-            <navigator url="../editeInfo/index?key=school&value={{school}}&label=学号">
+            <navigator url="../editeInfo/index?key=SchoolName&value={{session.schoolName}}&label=学号">
                 <view class="menu-item-title">
-                    {{session.school}}
+                    {{session.schoolName}}
                 </view>
                 <image class="next-icon" src="../../images/rightArrow.png" />
             </navigator>

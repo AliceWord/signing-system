@@ -42,22 +42,22 @@ Page({
     var month = curDate.getMonth() + 1;
     var day = curDate.getDate();
 
-    wx.request({
-      url: 'http://127.0.0.1:8080/SignInSystem/test', //仅为示例，并非真实的接口地址
-      data: {
+    // wx.request({
+    //   url: 'http://127.0.0.1:8080/SignInSystem/test', //、、、、、、、
+    //   data: {
          
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          name:res.data[0].department
-      })
-      console.log(name+'222')
-      }
-    })
+    //   },
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success: function (res) {
+    //     console.log(res)
+    //     that.setData({
+    //       name:res.data[0].department
+    //   })
+    //   console.log(name+'222')
+    //   }
+    // })
 
     // console.log("newSignUpJs " + year + "-" + month + "-" + day);
     // wx.request({
@@ -102,19 +102,20 @@ Page({
    */
   weekSelect: function (e) {
     var that = this;
-    // wx.request({
-    //   url: 'http://api/course_week',
-    //   data: {
-    //     x: WeChatid,
-    //     y: e.detail.value//教学周
-    //   },
-    //   success: function (res) {
-    //     that.setData({
-    //       weekSlected: e.detail.value,
-    //       session: res.data.session
-    //     })
-    //   }
-    // })
+    wx.request({
+      url: 'http://127.0.0.1:8080/SignInSystem/getCourseWeek',
+      data: {
+        Wechatid: getApp().globalData.WeChatid,
+        y: e.detail.value//教学周
+      },
+      success: function (res) {
+        that.setData({
+          weekSlected: e.detail.value,
+          session: res.data.session
+        })
+        console.log(res);
+      }
+    })
   },
 
   /**

@@ -2,6 +2,7 @@
 App({
   onLaunch: function () {
     // 展示本地存储能力
+    
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
@@ -9,9 +10,10 @@ App({
     // 登录
     wx.login({
       success: function (loginCode) {
+        const self = this;
         var appid = 'wx5dd7160a249b6c95'; //填写微信小程序appid
         var secret = 'b130f2b7ce78b03958b3a89d5ec11886'; //填写微信小程序secret
-
+        
         //调用request请求api转换登录凭证
         wx.request({
           url: 'https://api.weixin.qq.com/sns/jscode2session?appid=‘+<code></code>appid+’&secret=‘+secret+’&grant_type=authorization_code&js_code=' + loginCode.code,
@@ -19,8 +21,8 @@ App({
             'content-type': 'application/json'
           },
           success: function (res) {
-            this.setData({ 
-            WeChatid:res.data.openid //获取openid
+            self.setData({ 
+             WeChatid:res.data.openid //获取openid
             })
           }
         })
@@ -48,7 +50,7 @@ App({
     })
   },
   globalData: {
-    WeChatid:null,
+    WeChatid:'jywang',
     userInfo: null,
     userName:null,
     userId:null,
