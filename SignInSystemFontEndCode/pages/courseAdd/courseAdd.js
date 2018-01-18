@@ -6,15 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    inputValue:null,
+    inputValue:'123',
     startWeek:1,
     endWeek:14,
+    courseName:'',
     // session: [],
     
     mine: "王丹阳",
-    session: [{ selected: true, Courseid: 123, day: 1, Section: 6, duringTime: 2, CourseName: "组合数学", TeacherName: "王老师", TeachingBuiLding: "主楼-101", session_selectNum: 162, startWeek: 1, endWeek: 18 }, { selected: true, Courseid: 124, day: 3, Section: 1, duringTime: 2, CourseName: "高等网络", TeacherName: "王老师", TeachingBuiLding: "主楼-111", session_selectNum: 102, startWeek: 4, endWeek: 18 }
+    // session: [{ selected: true, Courseid: 123, day: 1, Section: 6, duringTime: 2, CourseName: "组合数学", TeacherName: "王老师", TeachingBuiLding: "主楼-101", session_selectNum: 162, startWeek: 1, endWeek: 18 }, { selected: true, Courseid: 124, day: 3, Section: 1, duringTime: 2, CourseName: "高等网络", TeacherName: "王老师", TeachingBuiLding: "主楼-111", session_selectNum: 102, startWeek: 4, endWeek: 18 }
 
-    ],
+    // ],
+    session:[{classRoom:"",courseName:"123",date:"",period:"",section:"",reachingBuilding:"",selectNum:"",date:""}],
     session_color: ["#EE3A8C", "#FFC125", "#B23AEE", "#97FFFF", "#76EE00", "#4876FF", "#EE7600"]
 
   },
@@ -24,18 +26,7 @@ Page({
    * Get and parse para...
    */
   onLoad: function (options) {
-    var that = this;
-    wx.request({
-      url: 'http://api/course_my',
-      data: {
-        x: WeChatid
-      },
-      success: function (res) {
-        that.setData({
-          session: res.data.session
-        })
-      }
-    })
+    
   },
 
   selected_change: function (e) {
@@ -53,20 +44,21 @@ Page({
     this.setData({
       inputValue: e.detail.value
     })
+    console.log(this.data.inputValue)
   },
 
   course_search: function (e) {
     var that = this;
     wx.request({
-      url: 'http://api/course_search',
+      url: 'http://127.0.0.1:8080/SignInSystem/courseSearch',
       data: {
-        x: WeChatid,
-        y: inputValue
+        courseName: that.data.inputValue
       },
       success: function (res) {
         that.setData({
-          session: res.data.session
+          session: res.data
         })
+        console.log(res)
       }
     })
   },
@@ -92,7 +84,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    wx.request({
+      url: 'http://127.0.0.1:8080/SignInSystem/getCourseWeek',
+      data: {
+        Wechatid: getApp().globalData.WeChatid
+      },
+      success: function (res) {
+        that.setData({
+          session: res.data
+        })
+        console.log(res);
+      }
+    })
   },
 
   /**

@@ -21,16 +21,18 @@ Page({
     { session: 8, time: "15:20" }, { session: 9, time: "16:10" }, { session: 10, time: "17:05" },
     { session: 11, time: "17:55" }, { session: 12, time: "19:20" }, { session: 13, time: "20:10" }],
     schedule_line: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-    session: [{ day: 1, Section: 6, duringTime: 2, CourseName: "组合数学", TeachingBuiLding: "主楼-101", session_selectNum: 162, session_duringWeek: 18 },
-    { day: 1, Section: 1, duringTime: 2, CourseName: "高等网络", TeachingBuiLding: "四教-203", session_selectNum: 94, session_duringWeek: 16 },
-    { day: 2, Section: 10, duringTime: 2, CourseName: "微机设计", TeachingBuiLding: "三教-304", session_selectNum: 38, session_duringWeek: 18 },
-    { day: 3, Section: 4, duringTime: 2, CourseName: "人机交互", TeachingBuiLding: "三教-111", session_selectNum: 51, session_duringWeek: 8 },
-    { day: 4, Section: 6, duringTime: 3, CourseName: "软件工程", TeachingBuiLding: "六教-413", session_selectNum: 35, session_duringWeek: 18 },
-    { day: 5, Section: 3, duringTime: 2, CourseName: "嵌入式设计", TeachingBuiLding: "五教-521", session_selectNum: 27, session_duringWeek: 18 },
-    { day: 6, Section: 9, duringTime: 2, CourseName: "王者荣耀", TeachingBuiLding: "宿舍-017", session_selectNum: 5, session_duringWeek: 18 }
-    ],
+    // session: [{ day: 1, Section: 6, duringTime: 2, CourseName: "组合数学", TeachingBuiLding: "主楼-101", session_selectNum: 162, session_duringWeek: 18 },
+    // { day: 1, Section: 1, duringTime: 2, CourseName: "高等网络", TeachingBuiLding: "四教-203", session_selectNum: 94, session_duringWeek: 16 },
+    // { day: 2, Section: 10, duringTime: 2, CourseName: "微机设计", TeachingBuiLding: "三教-304", session_selectNum: 38, session_duringWeek: 18 },
+    // { day: 3, Section: 4, duringTime: 2, CourseName: "人机交互", TeachingBuiLding: "三教-111", session_selectNum: 51, session_duringWeek: 8 },
+    // { day: 4, Section: 6, duringTime: 3, CourseName: "软件工程", TeachingBuiLding: "六教-413", session_selectNum: 35, session_duringWeek: 18 },
+    // { day: 5, Section: 3, duringTime: 2, CourseName: "嵌入式设计", TeachingBuiLding: "五教-521", session_selectNum: 27, session_duringWeek: 18 },
+    // { day: 6, Section: 9, duringTime: 2, CourseName: "王者荣耀", TeachingBuiLding: "宿舍-017", session_selectNum: 5, session_duringWeek: 18 }
+    // ],
+    session: [{ date: 1, section: 6, period: 2, courseName: "组合数学", teachingBuiLding: "主楼-101", session_selectNum: 162, session_duringWeek: 18 }],
     session_color: ["#EE3A8C", "#FFC125", "#B23AEE", "#97FFFF", "#76EE00", "#4876FF", "#EE7600"]
   },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -42,39 +44,25 @@ Page({
     var month = curDate.getMonth() + 1;
     var day = curDate.getDate();
 
-    // wx.request({
-    //   url: 'http://127.0.0.1:8080/SignInSystem/test', //、、、、、、、
-    //   data: {
-         
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success: function (res) {
-    //     console.log(res)
-    //     that.setData({
-    //       name:res.data[0].department
-    //   })
-    //   console.log(name+'222')
-    //   }
-    // })
-
-    // console.log("newSignUpJs " + year + "-" + month + "-" + day);
-    // wx.request({
-    //   url: 'http://api/course_now',
-    //   data: {
-    //     x: WeChatid,
-    //     y: year,
-    //     m: month,
-    //     d: day
-    //   },
-    //   success: function (res) {
-    //     that.setData({
-    //       session: res.data.session,
-    //       showView: (res.data.type == 1 ? true : false)
-    //     })
-    //   }
-    // })
+    //console.log("newSignUpJs " + year + "-" + month + "-" + day);
+    wx.request({
+      url: 'http://127.0.0.1:8080/SignInSystem/getCourseWeek', //getCourseNow()
+      data: {
+        Wechatid: getApp().globalData.WeChatid,
+       // y:1,
+                  // y: year,
+                  // m: month,
+                  // d: day
+      },
+      success: function (res) {
+        that.setData({
+          //weekSlected: e.detail.value,
+          session: res.data
+        })
+        console.log(res);
+        
+      }
+    })
   },
 
   onChangeShowState: function () {
@@ -83,19 +71,6 @@ Page({
       showView: (!that.data.showView)
     })
   },
-
-  //---------------框架代码-----------------------
-  // imgTStart:function(e){
-  //     this.setData({
-  //       img_src: '../../images/course_teacher.png'
-  //     })
-  // },
-  // imgTEnd: function (e) {
-  //   this.setData({
-  //     img_src: '../../images/course.png'
-  //   })
-  // },
-  //-----------------------------------------------
 
   /**
    * Select week
@@ -111,7 +86,7 @@ Page({
       success: function (res) {
         that.setData({
           weekSlected: e.detail.value,
-          session: res.data.session
+          session: res.data
         })
         console.log(res);
       }

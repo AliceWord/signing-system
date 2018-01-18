@@ -1,24 +1,24 @@
 <!--pages/courseAdd/courseAdd.wxml-->
 <view class='container'>
  <view class='search'>
-  <input   bindtap="bindKeyInput"></input>
+  <input   bindinput="bindKeyInput"></input>
   <button  class='butt' bindtap="course_search">搜索</button>
 </view> 
 
-  <view wx:for="{{session}}" wx:for-item="session" class='list_course' 
-  style='border-bottom:8rpx solid {{session_color[(session.day+session.Section)%6]}}'>
-    <view class='list_course_name'>{{session.CourseName}}</view>
+  <view wx:for="{{session}}" wx:for-item="session"  class='list_course' 
+  style='border-bottom:8rpx solid {{session_color[(session.date+session.section)%6]}}'>
+    <view class='list_course_name'>{{session.courseName}}</view>
     <view class='list_course_middle'>
       <image src='../../images/doctor_hat.png' class='doctorHat'></image>
-      <view class='list_course_middle_mine'>{{session.TeacherName}}</view>
+      <view class='list_course_middle_mine'>{{session.teacherName}}</view>
       <image src='../../images/multi_people.png' class='multiPeople'></image>
-      <view class='list_course_middle_selectNum'>{{session.session_selectNum}}人参加</view>
+      <view class='list_course_middle_selectNum'>{{session.selectNum}}人参加</view>
      <button bindtap='selected_change' style='background-color:#FFFFFF'class='list_course_middle_btn' data-item='{{session.Courseid}}' >{{!session.selected?"添加":"删除"}}</button> 
     </view>
     <view class='list_course_bottom'>
       <image src='../../images/address.png' class='list_course_address'></image>
       <view class='list_course_bottom_schudule'>
-        {{session.TeachingBuiLding}}<text decode="{{true}}" space="{{true}}">&nbsp;</text>周{{session.day}}<text decode="{{true}}" space="{{true}}">&nbsp;</text>第{{session.Section}}{{session.duringTime==1?"":('-'+(session.Section+session.duringTime-1))}}节<text decode="{{true}}" space="{{true}}">&nbsp;</text>{{session.startWeek}}-{{session.endWeek}}周
+        {{session.teachingBuilding}}<text decode="{{true}}" space="{{true}}">&nbsp;</text>周{{session.date}}<text decode="{{true}}" space="{{true}}">&nbsp;</text>第{{session.section}}{{session.period==1?"":('-'+(session.section+session.period-1))}}节<text decode="{{true}}" space="{{true}}">&nbsp;</text>{{session.startWeek}}-{{session.endWeek}}周
         </view>
     </view>
   </view>
