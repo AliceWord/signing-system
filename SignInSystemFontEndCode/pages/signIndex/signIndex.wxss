@@ -6,7 +6,7 @@
 
 .upper{
   width: 100%;
-  height: 120px;
+  height: 80px;
   /* background-color: red; */
   border-radius: 150rpx;
 }
@@ -32,10 +32,10 @@
   align-items: center;
 }
 
-.course_index{
-  
+.map_index{
+  width: 750rpx;
+  height: 250rpx;
 }
-
 .course_text{
   font-size: 50rpx;
   font-weight: bolder;
@@ -71,7 +71,7 @@
 
 .timer{
   color: red;
-  margin-top:20rpx
+  margin-top:10rpx
 }
 
 .detail_top{

@@ -3,24 +3,22 @@
 <map style="width:375px;height:180px;"></map>  
   <!-- <map markers="{{markers}}" style="width: 375px; height: 200px;" wx:if="{{map}}"></map> -->
 <button type="primary" bindtap="checkLocation" >查看当前位置</button>
-
     
 <view class="container">
 
   <view class="lower" >   <!-- style='height:{{secondHeight}}rpx' -->
     <view class='lower_1'>
       <text class='course_index'>当前签到课程</text>
-      <text class='course_text'>{{course}}</text>
+      <text class='course_text'>{{courseName}}</text>
     </view>
     <view class='lower_2'>
-      <image src='{{imgSrc_signBegin}}' class='img_lower' bindtap='imgChange'></image>
+      <image src='{{imgSrc_sign}}' class='img_lower' bindtap='signUp'></image>
     </view>
     <view class='lower_3'>
-      <text class='timerCaption'>{{timerCaption}}</text>
-      <text class='timer'>{{clock}}</text>
+      <view class='timerCaption'>{{timerCaption}}</view>
+      <view class='timer'>{{signUpStartTime}}-{{signUpEndTime}}</view>
     </view>
+
   </view>
 
 </view>
-
-
