@@ -1,8 +1,7 @@
 {
   "pages": [
-      "pages/course/course",
+    "pages/course/course",
     "pages/signIndex/signIndex",
-  
     "pages/courseAdd/courseAdd",
     "pages/teacherIdentify/teacherIdentify",
     "pages/account/account",

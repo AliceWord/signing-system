@@ -11,10 +11,10 @@ Page({
     signUpEndTime: '00:00',
     signUpTime: 0,
     imgSrc_sign: "../../images/qiandao.png",
-    courseToday: null,
     courseIndex: 0,
     date: null,
-    signFlag: false
+    signFlag: false,
+    courseToday: [{ courseName: '',  signUpStartTime: '', signUpEndTime: '', latitude: '', longitude:''}]
   },
 
   /**
@@ -28,15 +28,18 @@ Page({
     var week = timeNow.getDay();
     //获取今天的上课列表
     wx.request({
-      url: 'http://api/course_today',
+      url: 'http://127.0.0.1:8080/SignInSystem/courseToday',
       data: {
-        x: getApp().globalData.WeChatid,
-        y: week
+        Wechatid: getApp().globalData.WeChatid,
+        day: week
       },
       success: function (res) {
-        this.setData(
-          that.data.courseToday = res.data
-        )
+        that.setData({
+          //weekSlected: e.detail.value,
+          courseToday: res.data
+        })
+        that.freshen()
+        console.log(res)
       }
     })
   },
@@ -64,7 +67,6 @@ Page({
     var hour = timeNow.getHours();
     var minute = timeNow.getMinutes();
     var signUpTime = that.data.signUpTime;
-
     if (that.data.signFlag) {
       return
     }
@@ -79,7 +81,13 @@ Page({
       return
     }
 
-    var course = that.data.courseToday[that.data.courseIndex];
+    if (that.data.courseIndex == null)
+    {
+      that.freshen()
+      return
+    }
+     
+    var course = that.data.courseToday[that.data.courseIndex];     
     wx.getLocation({
       type: 'wgs84',
       success: function (res) {
@@ -120,7 +128,7 @@ Page({
             duration: 1000,
             image: "../../images/pass.png"
           })
-          this.setDate({
+          this.setData({
             signFlag: true,
             imgSrc_sign: "../../images /sign_success.png"
           })
@@ -131,7 +139,7 @@ Page({
             duration: 1000,
             image: "../../images/pass.png"
           })
-          this.setDate({
+          this.setData({
             signFlag: true,
             imgSrc_sign: "../../images /sign_success.png"
           })
@@ -151,8 +159,14 @@ Page({
 
   freshen: function () {
     var that = this;
-
+    if(that.data.courseToday==null)
+    return;
+    console.log(that.data.courseToday)
     var timeNow = new Date();
+    if(that.data.date==null){
+      that.data.date=timeNow
+    }
+
     if (that.data.date.getDay() != timeNow.getDate()) {
       that.data.date = timeNow;
       var week = timeNow.getDay();
@@ -163,9 +177,7 @@ Page({
           y: week
         },
         success: function (res) {
-          this.setData(
-            this.data.courseToday = res.data
-          )
+          that.data.courseToday = res.data
         }
       })
     }
@@ -174,13 +186,13 @@ Page({
     var hour = timeNow.getHours();
     var minute = timeNow.getMinutes();
     var i = 0;
-
     for (; i < course.length; i++) {
-      var signStartHour = parseInt(course[i].signUpStartTime.slice(0, 1));
-      var signStartMinute = parseInt(course[i].signUpStartTime.slice(3, 4));
-      var signEndHour = parseInt(course[i].signUpEndTime.slice(0, 1));
-      var signEndMinute = parseInt(course[i].signUpEndTime.slice(3, 4));
-
+      var signStartHour = parseInt(course[i].signUpStartTime.slice(0, 2));
+      var signStartMinute = parseInt(course[i].signUpStartTime.slice(3, 5));
+      var signEndHour = parseInt(course[i].signUpEndTime.slice(0, 2));
+      var signEndMinute = parseInt(course[i].signUpEndTime.slice(3, 5));
+      console.log(course[i].signUpStartTime.slice(0, 2))
+      console.log(course[i].signUpStartTime.slice(3, 5))
       //有尚未开始的课程
       if ((hour * 60 + minute) < (signStartHour + 60 + signStartMinute)) {
         that.data = {
@@ -193,12 +205,12 @@ Page({
         break;
       }
       //有正在签到的课且没有签过到
-      else if (((hour * 60 + minute) <= (signEndtHour + 60 + signEndMinute)) && !that.data.signFlag) {
+      else if (((hour * 60 + minute) <= (signEndHour + 60 + signEndMinute)) && !that.data.signFlag) {
         that.data = {
           courseName: course[i].courseName,
           signUpStartTime: course[i].signUpStartTime.slice(0, 5),
           signUpEndTime: course[i].signUpEndTime.slice(0, 5),
-          signUpTime: signEndtHour + 60 + signEndMinute,
+          signUpTime: signEndtHour * 60 + signEndMinute,
           signFlag: true,
           courseIndex: i,
           imgSrc_sign: "../../images/sign_begin.png"
